@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.section {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.active {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+}
+
+.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Landing Page */
+#landing-page {
+    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------------
+   NEW SPLIT LAYOUT (Left Text / Right Carousel)
+   ------------------------------------- */
+.content.split-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+    height: 100vh;
+}
+
+.text-side {
+    flex: 1;
+    text-align: left;
+    padding-right: 40px;
+    z-index: 10;
+}
+
+.text-side h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.text-side p {
+    color: #ddd;
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 0 40px 0;
+}
+
+.carousel-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.cta-button {
+    background: #D4AF37;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background: #b5952f;
+}
+
+/* Form Page & Thank You Page */
+#form-page, #thank-you-page {
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.form-container p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #D4AF37;
+}
+
+#submit-btn, #back-to-home-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.back-button:hover {
+    color: #D4AF37; 
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 20px;
+        left: 20px;
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   VERTICAL 3D Property Carousel Styling
+   ========================================== */
+.property-carousel {
+    width: 550px; 
+    height: 100vh; 
+    overflow-y: hidden; 
+    overflow-x: visible;
+    padding: 0;
+    cursor: grab;
+    scrollbar-width: none; 
+    position: relative;
+}
+
+.property-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.property-carousel:active {
+    cursor: grabbing;
+}
+
+.carousel-track {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 40px; 
+    padding: calc(50vh - 220px) 0; 
+    height: max-content;
+}
+
+.property-card {
+    width: 360px; 
+    height: 440px; 
+    flex-shrink: 0;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    will-change: transform, opacity;
+    cursor: pointer;
+    border: 0;
+    transition: box-shadow 0.25s ease, outline-color 0.25s ease;
+}
+
+.property-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; 
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    padding: 30px 15px 15px;
+    text-align: left;
+}
+
+.card-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    color: #D4AF37;
+}
+
+.card-overlay p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #ddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Selected card */
+.property-card.selected {
+    outline: 3px solid #D4AF37;
+    outline-offset: -3px;
+    box-shadow: 0 0 28px rgba(212, 175, 55, 0.72);
+    z-index: 5;
+    transform: perspective(900px) scale(1.06) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+/* ==========================================
+   Mobile Responsive Adjustments (FIXED)
+   ========================================== */
+@media (max-width: 992px) {
+    .content.split-layout {
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        height: 100vh;
+        padding-top: 8vh;
+    }
+    .text-side {
+        flex: none;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .text-side h1 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+    }
+    .text-side p {
+        font-size: 1rem;
+        margin: 0 auto 20px;
+        max-width: 90%;
+    }
+    .carousel-side {
+        flex: 1;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        display: flex;
+        align-items: flex-start;
+    }
+    .property-carousel {
+        height: 100%; 
+        width: 100%;
+    }
+    .carousel-track {
+        padding: 30vh 0;
+        gap: 25px;
+    }
+    .property-card {
+        width: 260px;
+        height: 340px; 
+    }
+}
+
+/* ==========================================
+   CLICK-TO-SELECT PROPERTY DETAILS OVERLAY
+   ========================================== */
+.project-details-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.project-details-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.project-details {
+    position: relative;
+    width: min(560px, 100%);
+    max-height: min(82vh, 720px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 32px;
+    border: 1px solid rgba(212, 175, 55, 0.75);
+    border-radius: 18px;
+    background: #151515;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-details-backdrop.open .project-details {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.project-details .eyebrow {
+    color: #D4AF37;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin: 0 42px 10px 0;
+}
+
+.project-details h2 {
+    color: #D4AF37;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.2;
+    margin: 0 36px 10px 0;
+}
+
+.project-details .detail-location {
+    color: #ddd;
+    font-size: 0.95rem;
+    margin: 0 0 18px;
+}
+
+.project-details #detail-description {
+    color: #eee;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0 0 18px;
+}
+
+.project-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.project-details li {
+    color: #eee;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 10px 0 10px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.project-details li::before {
+    content: "✦";
+    position: absolute;
+    left: 2px;
+    color: #D4AF37;
+}
+
+.close-details {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.close-details:hover {
+    background: #D4AF37;
+    color: #111;
+}
+
+.project-details .cta-button {
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .project-details-backdrop { padding: 14px; }
+    .project-details { padding: 26px 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-details-backdrop,
+    .project-details,
+    .property-card { transition: none; }
+}
+
+/* ==========================================
+   RESPONSIVE OVERRIDES (keep at END of file)
+   ========================================== */
+.section,
+.content.split-layout {
+    height: 100vh;
+    height: 100dvh;
+}
+
+.text-side h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
+.text-side p  { font-size: clamp(0.95rem, 2.2vw, 1.2rem); }
+
+.property-carousel {
+    width: min(550px, 100%);
+    touch-action: none;           /* lets JS handle finger dragging */
+}
+
+.property-card {
+    width: clamp(230px, min(30vw, 40dvh), 360px);
+    height: auto;
+    aspect-ratio: 360 / 440;      /* height follows width automatically */
+}
+
+/* ---------- Tablets + phones (portrait) ---------- */
+@media (max-width: 992px) {
+    .content.split-layout {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: max(4vh, 16px) 5% 0;
+    }
+    .text-side {
+        flex: none;
+        padding-right: 0;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .text-side p {
+        margin: 0 auto 16px;
+        max-width: 36rem;
+    }
+    .carousel-side {
+        flex: 1 1 0;
+        min-height: 0;
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        justify-content: center;
+        align-items: stretch;
+    }
+    .property-carousel {
+        height: 100%;
+        width: min(100%, 480px);
+    }
+    .property-card {
+        width: clamp(220px, 62vw, 340px);
+        height: auto;
+    }
+}
+
+/* ---------- Phones held sideways (short screens) ---------- */
+@media (max-height: 520px) and (orientation: landscape) {
+    .content.split-layout {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 4%;
+    }
+    .text-side {
+        flex: 1;
+        text-align: left;
+        padding-right: 20px;
+        margin: 0;
+    }
+    .text-side h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    .text-side p  { font-size: 0.85rem; margin: 0 0 12px; }
+    .carousel-side { height: 100%; }
+    .property-carousel { height: 100%; width: min(100%, 300px); }
+    .property-card { width: clamp(170px, 26vw, 250px); }
+    .cta-button { padding: 10px 24px; font-size: 0.95rem; }
+}
+
+/* ---------- Form page ---------- */
+#form-page, #thank-you-page {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start;
+    padding: 72px 16px 24px;
+}
+.form-container { margin: auto; }   /* centred, but scrolls safely if tall */
+.input-group input { font-size: 16px; }  /* stops iPhone auto-zoom */
+
+@media (max-width: 480px) {
+    .form-container { padding: 28px 20px; }
+    .form-container h2 { font-size: 1.8rem; }
+}
+
+/* ---------- Details popup ---------- */
+.project-details {
+    max-height: min(86vh, 720px);
+    max-height: min(86dvh, 720px);
+}
+
+/* Lock the page itself so it can never scroll to white */
+html, body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}

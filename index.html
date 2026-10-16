@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTATE ARTHA - Find Your Dream Property</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Landing Page Section -->
+    <div id="landing-page" class="section active">
+        <div class="overlay">
+            
+            <!-- TWO-COLUMN LAYOUT -->
+            <div class="content split-layout">
+                
+                <!-- Left Side: Text & CTA -->
+                <div class="text-side">
+                    <h1>ESTATES ARTHA</h1>
+                    <p>Curating exceptional living spaces for extraordinary lives. Your journey to the perfect property begins here.</p>
+                    <button id="start-btn" class="cta-button">Connect with Your dreams </button>
+                </div>
+                
+                <!-- Right Side: Vertical Carousel -->
+                <div class="carousel-side">
+                    <div class="property-carousel" id="property-carousel">
+                        <div class="carousel-track">
+                            <div class="property-card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi9CB0NRgnXJfETcx2ZYkn2bRRhbDMQcUHWLBvQ9ntD33lHrnQrMGqfCE&s=10" alt="Hero Homes">
+                                <div class="card-overlay">
+                                    <h3>Hero Homes - Leafsong Retreat</h3>
+                                    <p>Greater Noida</p>
+                                </div>
+                            </div>
+                            <div class="property-card">
+                                <img src="https://godrejglobalbusinesscitynoida.in/img/godrej-global-business-city-elevation.webp" alt="Godrej Global Business City">
+                                <div class="card-overlay">
+                                    <h3>Godrej Global Buisness City</h3>
+                                    <p>Greater Noida</p>
+                                </div>
+                            </div>
+                            <div class="property-card">
+                                <img src="https://prestigenewproject.com/ghaziabad/images/banner/banner1.webp" alt="Prestige City">
+                                <div class="card-overlay">
+                                    <h3>Prestige City</h3>
+                                    <p>Indirapuram</p>
+                                </div>
+                            </div>
+                            <div class="property-card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN-C2uKyGpqfakXq5N0MycAaY524FIwD5z0D3dFRWf3j9Qi2Zup8Jm3pE1&s=10" alt="Sobha Rivana">
+                                <div class="card-overlay">
+                                    <h3>Sobha Rivana</h3>
+                                    <p>Greater Noida</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Property details overlay -->
+        <div id="project-details-backdrop" class="project-details-backdrop" aria-hidden="true">
+            <section id="project-details" class="project-details" role="dialog" aria-modal="true" aria-labelledby="detail-name">
+                <button type="button" id="close-details" class="close-details" aria-label="Close project details">&times;</button>
+                <p class="eyebrow">PROPERTY SPOTLIGHT</p>
+                <h2 id="detail-name">Project name</h2>
+                <p id="detail-location" class="detail-location">Project location</p>
+                <p id="detail-description">Select a property to explore its details.</p>
+                <ul id="detail-highlights"></ul>
+                <button type="button" id="enquire-project" class="cta-button">Enquire About This Project</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div id="form-page" class="section hidden">
+        <button id="back-btn" class="back-button">← Back</button>
+        <div class="form-container">
+            <h2>Let's Get Started</h2>
+            <p>Share your details, and our experts will curate the best properties for you.</p>
+            
+            <form id="artha-form" name="submit-to-google-sheet">
+                <div class="input-group">
+                    <label for="Name">Full Name</label>
+                    <input type="text" name="Name" id="Name" required placeholder="Estates Artha">
+                </div>
+                
+                <div class="input-group">
+                    <label for="Phone">Phone Number</label>
+                    <input type="tel" name="Phone" id="Phone" required 
+                    maxlength="10" 
+                    pattern="[0-9]{10}" 
+                    title="Please enter exactly 10 digits" 
+                    placeholder="98xxxxxxxx" 
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+                
+                <div class="input-group">
+                    <label for="Email">Email Address</label>
+                    <input type="email" name="Email" id="Email" required placeholder="estates.artha@example.com">
+                </div>
+                <input type="hidden" name="Project" id="selected-project" value="">
+
+                <button type="submit" id="submit-btn" class="cta-button">Connect With Us</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NEW Thank You Page Section -->
+    <div id="thank-you-page" class="section hidden">
+        <div class="form-container" style="text-align: center;">
+            <h2 style="color: #D4AF37; margin-bottom: 20px;">Thank You!</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">Thankyou to connect with us <br> your request has been submitted successfully. our Consultants will connect with you soon.</p>
+            <button id="back-to-home-btn" class="cta-button">Return to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
